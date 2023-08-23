@@ -15,6 +15,7 @@ func GetMethod(url string) {
 	if err != nil {
 		panic(err)
 	}
+	defer res.Body.Close()
 	fmt.Println("Status Code:", res.StatusCode)
 	fmt.Println("Content lenght:", res.ContentLength)
 	content, _ := io.ReadAll(res.Body)
